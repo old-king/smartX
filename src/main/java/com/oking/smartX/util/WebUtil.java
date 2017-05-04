@@ -12,8 +12,8 @@ import java.util.Map;
  */
 public class WebUtil {
 
-    public static Map<String,String> getParamsByRequest(HttpServletRequest request){
-        Map<String,String[]> params=request.getParameterMap();
+    public static Map<String, String> getParamsByRequest(HttpServletRequest request) {
+        Map<String, String[]> params = request.getParameterMap();
 
 //        Enumeration<String>  paramNames=request.getParameterNames();
 //
@@ -28,10 +28,10 @@ public class WebUtil {
 //            }
 //        }
         //TODO 暂时不支持数组  只支持单一参数
-        Map<String,String> requestParams=new HashMap<>();
+        Map<String, String> requestParams = new HashMap<>();
         for (Map.Entry<String, String[]> stringEntry : params.entrySet()) {
-            requestParams.put(stringEntry.getKey(),stringEntry.getValue()[0]);
+            requestParams.put(stringEntry.getKey(), stringEntry.getValue()[0]);
         }
-      return requestParams;
+        return requestParams;
     }
 }

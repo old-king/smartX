@@ -15,8 +15,8 @@ import com.oking.smartX.annotation.RequestMethod;
 public class IndexController {
 
     @RequestMapping
-    public String index() {
-        return "hello world!";
+    public String index(String name, int age) {
+        return "Hello,My name is " + name + ", my age is " + age;
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)

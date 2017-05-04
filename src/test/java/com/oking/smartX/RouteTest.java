@@ -8,11 +8,11 @@ import java.util.List;
  */
 public class RouteTest {
     public static void main(String[] args) {
-        String path="http://localhost:8080/usr/1";
+        String path = "http://localhost:8080/usr/1";
 
-        List<Route> routes=new ArrayList<>();
-        Route route=new Route("/usr/1", null,Object.class);
+        List<Route> routes = new ArrayList<>();
+        Route route = new Route("/usr/1", null, Object.class);
         routes.add(route);
-        RouteMatcher routeMatcher=new RouteMatcher(routes);
+        RouteMatcher routeMatcher = new RouteMatcher(routes);
     }
 }

@@ -13,8 +13,8 @@ import java.util.List;
 public class ClassUtilTest {
 
     public static void main(String[] args) {
-        String   packageName="com.oking.smartX";
-        List classes= ClassUtil.getClassList(packageName);
-        classes.forEach(clz-> System.out.println(clz.getClass().getName()));
+        String packageName = "com.oking.smartX";
+        List classes = ClassUtil.getClassList(packageName);
+        classes.forEach(clz -> System.out.println(clz.getClass().getName()));
     }
 }

@@ -11,11 +11,11 @@ import java.lang.reflect.Method;
  */
 public class ReflectUtil {
 
-    public static Object invokeMethod(Class<?> clazz, Method method,Object[] params){
+    public static Object invokeMethod(Class<?> clazz, Method method, Object[] params) {
         method.setAccessible(true);
         try {
-            Object instance=clazz.newInstance();
-            return method.invoke(instance,params);
+            Object instance = clazz.newInstance();
+            return method.invoke(instance, params);
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

@@ -14,8 +14,8 @@ public class RequestBean {
     private RequestMethod method;
 
     public RequestBean(String url, RequestMethod requestMethod) {
-        this.url=url;
-        this.method=requestMethod;
+        this.url = url;
+        this.method = requestMethod;
     }
 
     public RequestBean() {

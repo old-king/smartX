@@ -7,6 +7,7 @@ package com.oking.smartX.util;
 public class PathUtil {
     public static final String VAR_REGEXP = ":(\\w+)";
     public static final String VAR_REPLACE = "([^#/?.]+)";
+
     /**
      * 得到正确请求地址
      */
@@ -15,7 +16,7 @@ public class PathUtil {
             return "/";
         }
         if (!path.startsWith("/")) {
-            path += "/";
+            path = "/" + path;
         }
         if (path.length() > 1 && path.endsWith("/")) {
             path = path.substring(0, path.length() - 1);

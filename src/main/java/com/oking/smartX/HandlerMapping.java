@@ -1,7 +1,5 @@
 package com.oking.smartX;
 
-import com.oking.smartX.bean.RequestBean;
-
 import java.util.Map;
 
 /**
@@ -12,15 +10,12 @@ import java.util.Map;
  */
 public class HandlerMapping {
     public static Route getHandle(String requestPath, String requestMethod) {
-         Map<RequestBean,Route> handles= ControllerFactory.getRouteMap();
+        Map<String, Map<String, Route>> handles = ControllerFactory.getRouteMap();
 
-        for (Map.Entry<RequestBean, Route> requestBeanRouteEntry : handles.entrySet()) {
-            RequestBean bean=requestBeanRouteEntry.getKey();
-            if(bean.getUrl().equals(requestPath)&&bean.getMethod().equals(requestMethod)){
-                Route route=requestBeanRouteEntry.getValue();
-                if(route!=null){
-                    return route;
-                }
+        if (handles.containsKey(requestMethod)) {
+            Map<String, Route> routeMap = handles.get(requestMethod);
+            if (routeMap.containsKey(requestPath)) {
+                return routeMap.get(requestPath);
             }
         }
         return null;

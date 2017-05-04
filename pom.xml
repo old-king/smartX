@@ -131,7 +131,7 @@
                     <reload>manual</reload>
                     <dumpOnStart>true</dumpOnStart>
                     <webApp>
-                        <contextPath>/${project.artifactId}</contextPath>
+                        <contextPath>/</contextPath>
                         <!--
                         <resourceBases>
                           <resourceBase>${project.basedir}/src/main/webapp</resourceBase>

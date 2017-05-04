@@ -12,11 +12,13 @@ import java.lang.annotation.Target;
  * @date 2017/4/19 0019 18:00
  * ${tags}
  */
-@Target({ElementType.METHOD,ElementType.TYPE})
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface RequestMapping {
     String value() default "/";
+
     String[] values() default {"/"};
+
     RequestMethod method() default RequestMethod.GET;
 }

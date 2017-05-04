@@ -1,13 +1,11 @@
 package com.oking.smartX;
 
-import com.oking.smartX.annotation.RequestMethod;
-import com.oking.smartX.util.WebUtil;
+import com.oking.smartX.util.ReflectUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Method;
-import java.lang.reflect.Parameter;
-import java.util.Map;
 
 /**
  * @author 谢青
@@ -16,31 +14,39 @@ import java.util.Map;
  * ${tags}
  */
 public class HandlerInvoker {
-    //TODO  读取参数，传入相应方法
+    private static final Logger LOGGER = LoggerFactory.getLogger(HandlerInvoker.class);
+
+
     public static void invokeHandler(HttpServletRequest request, HttpServletResponse response, Route route) {
-         Map<String,String> params= WebUtil.getParamsByRequest(request);
-
-       if(request.getMethod().equals(RequestMethod.POST.toString())){
-           for (Class<?> param : route.getMethod().getParameterTypes()) {
-                String paramName=param.getName();
-           }
-       }
-
-//        ReflectUtil.invokeMethod(route.getController(),route.getMethod(),)
+        Object methodInvokeResult;
+        String[] paramNames = route.getMethodArgNames();
+        if (paramNames != null && paramNames.length > 0) {
+            Object[] args = new Object[paramNames.length];
+            for (int i = 0; i < paramNames.length; i++) {
+                args[i] = castArg(request.getParameter(paramNames[i]), route.getMethodArgTypes()[i]);
+            }
+            methodInvokeResult = ReflectUtil.invokeMethod(route.getController(), route.getMethod(), args);
+        } else {
+            methodInvokeResult = ReflectUtil.invokeMethod(route.getController(), route.getMethod(), null);
+        }
+        LOGGER.info(methodInvokeResult.toString());
     }
 
-
-    public static void main(String[] args) {
-        Method[] methods=HandlerInvoker.class.getMethods();
-        for (Method method : methods) {
-            Class[] parameterTypes=method.getParameterTypes();
-//            for (Class parameterType : parameterTypes) {
-//                System.out.println(parameterType.getName());
-//            }
-            Parameter[] params=method.getParameters();
-            for (Parameter parameter : params) {
-                System.out.println(parameter.getName());
-            }
+    private static <T> T castArg(Object value, Class<T> type) {
+        if (value == null) {
+            return null;
         }
+        if (type.equals(String.class)) {
+            value = String.valueOf(value);
+        } else if (type.equals(int.class) || type.equals(Integer.class)) {
+            value = Integer.parseInt(String.valueOf(value));
+        } else if (type.equals(double.class) || type.equals(Double.class)) {
+            value = Double.parseDouble(String.valueOf(value));
+        } else if (type.equals(long.class) || type.equals(Long.class)) {
+            value = Long.parseLong(String.valueOf(value));
+        } else if (type.equals(boolean.class) || type.equals(Boolean.class)) {
+            value = Boolean.parseBoolean(String.valueOf(value));
+        }
+        return (T) value;
     }
 }

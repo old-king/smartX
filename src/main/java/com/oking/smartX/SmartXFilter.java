@@ -15,7 +15,8 @@ import java.io.IOException;
  * Created by 谢青(oking) on 2017/4/12 0012.
  */
 public class SmartXFilter implements Filter {
-    private final static Logger LOGGER= LoggerFactory.getLogger(SmartXFilter.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(SmartXFilter.class);
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         LOGGER.info("This is a Start Point!");
@@ -25,7 +26,7 @@ public class SmartXFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         LOGGER.info("This is a filter Point!");
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
