@@ -11,12 +11,12 @@ import java.util.Map;
 
 /**
  * @author 谢青
- * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @Description: 请求处理器
  * @date 2017/4/19 0019 19:21
  * ${tags}
  */
 public class HandlerInvoker {
-    //TODO
+    //TODO  读取参数，传入相应方法
     public static void invokeHandler(HttpServletRequest request, HttpServletResponse response, Route route) {
          Map<String,String> params= WebUtil.getParamsByRequest(request);
 

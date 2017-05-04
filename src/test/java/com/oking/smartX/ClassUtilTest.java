@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author 谢青
- * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @Description: Class工具类测试类
  * @date 2017/4/19 0019 16:47
  * ${tags}
  */

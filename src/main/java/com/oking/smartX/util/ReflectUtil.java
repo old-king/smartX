@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 /**
  * @author 谢青
- * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @Description: 反射工具类
  * @date 2017/4/19 0019 20:06
  * ${tags}
  */

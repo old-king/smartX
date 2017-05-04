@@ -6,7 +6,7 @@ import com.oking.smartX.annotation.RequestMethod;
 
 /**
  * @author 谢青
- * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @Description: 控制层--index
  * @date 2017/4/19 0019 17:57
  * ${tags}
  */
@@ -15,12 +15,12 @@ import com.oking.smartX.annotation.RequestMethod;
 public class IndexController {
 
     @RequestMapping
-    public String index(){
+    public String index() {
         return "hello world!";
     }
 
-    @RequestMapping(value="/post",method = RequestMethod.POST)
-    public String post(){
-        return "post hello world!";
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    public String post(String name, int age) {
+        return name + "say: hello world! age:" + age;
     }
 }

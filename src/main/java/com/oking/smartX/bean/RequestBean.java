@@ -4,7 +4,7 @@ import com.oking.smartX.annotation.RequestMethod;
 
 /**
  * @author 谢青
- * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @Description: 请求实体类
  * @date 2017/4/19 0019 17:25
  * ${tags}
  */

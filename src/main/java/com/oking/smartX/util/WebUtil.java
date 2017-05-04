@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * @author 谢青
- * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @Description: web请求工具类
  * @date 2017/4/19 0019 19:23
  * ${tags}
  */

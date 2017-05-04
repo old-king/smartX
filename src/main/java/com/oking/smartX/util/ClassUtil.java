@@ -23,7 +23,6 @@ import java.util.stream.Collectors;
  * ${tags}
  */
 public class ClassUtil {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
     /**
      * 包目录分隔符:点
      */
@@ -56,6 +55,7 @@ public class ClassUtil {
      * class 文件分隔符:点
      */
     public static final String CLASS_FILE_POINT = PACKAGE_PATH_POINT;
+    private static final Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
     /**
      * 当前线程的类加载
      */
@@ -95,8 +95,7 @@ public class ClassUtil {
                     if (URL_PROTOCOL_FILE.equals(protocol)) {
                         loadClass(classList, packagePath, packageName);
                     } else if (URL_PROTOCOL_JAR.endsWith(protocol)) {
-                        //TODO
-//                        loadJarClass(classList, packagePath);
+                        loadJarClass(classList, packagePath);
                     }
                 }
             }
