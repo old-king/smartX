@@ -17,11 +17,8 @@
         <servlet.version>3.0.1</servlet.version>
 
 
+        <hutool.version>3.1.1</hutool.version>
         <slf4j.version>1.7.2</slf4j.version>
-        <jackson.version>1.9.13</jackson.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
-        <commons-collections.version>3.2.2</commons-collections.version>
-        <commons-io.version>2.5</commons-io.version>
         <junit.version>4.12</junit.version>
         <cglib.version>3.1</cglib.version>
         <asm.version>5.2</asm.version>
@@ -32,8 +29,8 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
-
 
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -46,40 +43,12 @@
             <version>${slf4j.version}</version>
             <scope>runtime</scope>
         </dependency>
-
-        <!--=======工具类=======-->
-        <!-- Jackson -->
+        <!--工具包 -->
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>${jackson.version}</version>
+            <groupId>com.xiaoleilu</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <!-- Apache Commons -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>${commons-lang3.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>${commons-collections.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
-        </dependency>
-
         <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>

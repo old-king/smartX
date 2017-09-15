@@ -1,6 +1,6 @@
 package com.oking.smartX.util;
 
-import org.apache.commons.lang3.StringUtils;
+import com.xiaoleilu.hutool.util.StrUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -116,7 +116,7 @@ public class ClassUtil {
             //文件操作
             if (file.isFile()) {
                 String className = fileName.substring(0, fileName.lastIndexOf(CLASS_FILE_POINT));
-                if (StringUtils.isNotEmpty(className)) {
+                if (StrUtil.isNotEmpty(className)) {
                     className = packageName + PACKAGE_PATH_POINT + className;
                 }
                 //加载class文件
@@ -126,12 +126,12 @@ public class ClassUtil {
             } else {
                 //子文件路径
                 String subPackagePath = fileName;
-                if (StringUtils.isNotEmpty(packagePath)) {
+                if (StrUtil.isNotEmpty(packagePath)) {
                     subPackagePath = packagePath + PACKAGE_PATH_SEPARATOR + subPackagePath;
                 }
                 //子包名
                 String subPackageName = fileName;
-                if (StringUtils.isNotEmpty(packageName)) {
+                if (StrUtil.isNotEmpty(packageName)) {
                     subPackageName = packageName + PACKAGE_PATH_POINT + subPackageName;
                 }
 

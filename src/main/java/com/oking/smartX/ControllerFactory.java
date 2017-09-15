@@ -6,7 +6,7 @@ import com.oking.smartX.annotation.RequestMethod;
 import com.oking.smartX.util.ClassUtil;
 import com.oking.smartX.util.ParameterNameUtils;
 import com.oking.smartX.util.PathUtil;
-import org.apache.commons.lang3.ArrayUtils;
+import com.xiaoleilu.hutool.util.ArrayUtil;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -36,7 +36,7 @@ public class ControllerFactory {
         List<Class<?>> classList = ClassUtil.getClassListByAnnotation(packageName, Controller.class);
         for (Class<?> controllerClass : classList) {
             Method[] methods = controllerClass.getMethods();
-            if (ArrayUtils.isNotEmpty(methods)) {
+            if (ArrayUtil.isNotEmpty(methods)) {
                 for (Method method : methods) {
                     handlerControllerMethod(controllerClass, method);
                 }
